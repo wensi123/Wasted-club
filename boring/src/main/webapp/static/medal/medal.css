@@ -1,0 +1,273 @@
+/*整体页面布局*/
+body {
+    background-image: url('../img/background_medal.jpg');
+    color: balck;
+    margin: 0;
+    padding: 0;
+}
+
+/* 导航栏样式 */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #a0deed;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 50px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color:black;
+}
+
+.active {
+    background-color: #42474b;
+}
+
+#user {
+    float: right;
+}
+
+
+/* 标题样式 */
+.title {/*成就系统标题*/
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    text-align: left;
+    color: #333;
+}
+
+/*分栏内容的全局设置*/
+.container {
+    display: flex;
+    margin-top: 5px;/*和上面的间距*/
+    padding: 0px;
+}
+
+.left-column {/*左侧分栏*/
+    flex: 5;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.right-column {/*右侧分栏*/
+    flex: 4;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* 左侧成就内容样式 */
+.left-top {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.box {
+    border: 2px solid #000;
+    padding: 10px;
+    background-color: white;
+    color: black;
+}
+
+/* 评论框样式 */
+.comment-box {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    box-sizing: border-box;
+}
+
+
+/* 按钮组样式 */
+.button-group {
+    text-align: left;
+}
+
+.btn {
+    padding: 10px 20px;
+    margin-left: 10px;
+    background-color: #42474b;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #333;
+}
+.btn_sent {
+    padding: 10px 20px;
+    margin-left: 10px;
+    background-color: #42474b;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn_sent:hover {
+    background-color: #333;
+}
+
+
+.gif{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* 设置图表的高度 */
+    position: relative;
+    margin-top: 20px;
+}
+
+
+
+/* 评论区样式 */
+.comment-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 0; 
+    
+}
+
+.comment {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    border: 2px solid #42474b;
+    background-color: rgba(255, 255, 255, 0.7);
+    
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 0; /* 方形头像 */
+    border: 2px solid #333; /* 边框颜色 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 平滑过渡效果 */
+}
+
+/* 鼠标悬停时的动画效果 */
+.avatar:hover {
+    transform: scale(1.2) rotate(10deg); /* 放大并旋转10度 */
+    box-shadow: 0 0 15px #333; /* 发光效果 */
+}
+
+.comment-content h4 {
+    margin: 0;
+}
+
+.comment-content p {
+    margin-top: 5px;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+
+
+/* 弹窗样式 */
+.popup {
+    
+    display: none;
+    position: fixed;
+    bottom: 15%; /* 弹窗对齐视口底部 */
+    left: 50%; /* 弹窗水平居中 */
+    transform: translateX(-50%); /* 水平居中对齐 */
+    width: 40%; /* 弹窗占据视口宽度的80% */
+    max-height: 80vh; /* 弹窗最大高度为视口高度的80% */
+    min-height: 100px; /* 设置弹窗最小高度，防止内容过少时塌陷 */
+    
+    background-color: #e0e0e0; /* 设置弹窗背景颜色 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* 添加阴影效果 */
+    padding: 20px; /* 设置内边距 */
+    box-sizing: border-box; /* 确保内边距和边框被包含在宽度和高度内 */
+    border-radius: 0px; /* 设置弹窗的圆角 */
+    z-index: 1000; /* 确保弹窗处于顶层 */
+    resize: both; /* 允许用户调整弹窗大小 */
+    
+}
+
+
+.popup-content {
+    margin-bottom: 20px; /* 保持内容与弹窗底部的距离 */
+    padding-bottom: 10px; /* 添加内边距以避免内容过于贴近滚动条 */
+}
+
+/* 标题和关闭按钮在同一行 */
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px; /* 减少标题与成就列表之间的间距 */
+}
+
+.popup ul{
+    
+    background-color: #ccc; /* 设置导航栏背景颜色 */
+}
+
+.popup-header h2 {
+    margin: 0;
+    color: #333;
+}
+
+.close-popup {
+    font-size: 18px;
+    cursor: pointer;
+    color: #333;
+    background-color: #ccc;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.close-popup:hover {
+    background-color: #c0c0c0;
+}
+
+
+
+
+/* 成就列表样式 */
+.achievement-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px; /* 减少成就列表的顶部外边距 */
+    margin-bottom: 10px;
+    color:white;
+}
+
+.achievement-list li {
+    padding: 8px; /* 减少成就项的内边距 */
+    margin-bottom: 8px; /* 减少成就项之间的间距 */
+    border-bottom: 16px solid white; /* 设置成就项之间的蓝色分隔 */
+    border-radius: 0px;
+    text-align: left;
+    width: 100%;
+
+}
+
+.achieved {
+    background-color: #a0deed;
+    color: black;
+}
+

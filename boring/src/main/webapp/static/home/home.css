@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color:#a0deed;
+    background-image: url('../img/homes.png'); /* 背景图片路径 */
+    background-size: 77%; /* 使背景图片覆盖整个视窗 */
+    background-position: center; /* 居中显示背景图片 */
+    background-repeat: no-repeat; /* 防止背景图片重复 */
+    background-attachment: fixed; /* 使背景图片固定，不随滚动条滚动 */
+    height: 100vh; /* 使body高度为视窗高度 */
+    display: flex;
+    flex-direction: column;
+}
+/* 导航栏样式 */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #a0deed;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 50px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color:black;
+}
+
+.active {
+    background-color: #42474b;
+}
+
+#user {
+    float: right;
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top: 50px; /* 根据导航栏的高度进行调整 */
+    box-sizing: border-box; /* 包含padding在height中 */
+}
+
+.map {
+    width: 100%;
+    height: calc(100% - 50px); /* 留出导航栏的高度 */
+    object-fit: cover; /* 确保图片不失真并填满空间 */
+}
+
+
+
+.point {
+    position: absolute;
+    width: 20px; 
+    height: 20px; 
+    background-color: red; 
+    border-radius: 50%;
+    cursor: pointer;
+    animation: jump 1s infinite ease-in-out; /* 跳动动画 */
+    transform: translate(-50%, -50%); /* 确保红点中心对齐 */
+  }
+  @keyframes jump {
+    0%, 100% {
+      transform: translateY(0); /* 初始位置 */
+    }
+    50% {
+      transform: translateY(-20px); /* 向上跳动的高度 */
+    }
+}
+.ship {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: url('../img/sailboat.png'); /* 帆船图标路径 */
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: top 2s ease, left 2s ease; /* 动画效果 */
+    transform: translate(-50%, -50%); /* 确保帆船中心对齐 */
+}
+
+/* 图鉴 */
+.illustration {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.illustration:hover {
+    background-color: #0056b3;
+}
+
+/* 退出登录 */
+.logout {
+    position: fixed;          
+    top: 70px;             
+    right: 35px;              
+    padding: 10px 10px;    
+    background-color: #488ad0; 
+    color: white;             
+    border: none;             
+    border-radius: 5px;       
+    font-size: 16px;          
+    cursor: pointer;          
+    transition: background-color 0.3s ease; 
+}
+
+.logout:hover {
+    background-color: #3636ce; 
+}
+
+.logout:active {
+    background-color: #3636ce; 
+    transform: scale(0.98);    /* 点击时稍微缩小 */
+}

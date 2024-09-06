@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打地鼠游戏</title>
+    <script src="../recordGame.js" defer></script>
+    <link rel="stylesheet" href="./mouse.css">
+</head>
+<body data-game-name="打地鼠">
+    <h1>打地鼠游戏</h1>
+
+    <!-- 开始游戏界面 -->
+    <div class="start-screen" id="startScreen">
+        <h2>选择难度</h2>
+        <button class="difficulty-button" data-difficulty="easy">简单</button>
+        <button class="difficulty-button" data-difficulty="medium">中等</button>
+        <button class="difficulty-button" data-difficulty="hard">困难</button>
+    </div>
+
+    <!-- 游戏界面 -->
+    <div class="score-board">得分: <span id="score">0</span></div>
+    <div class="time-board">剩余时间: <span id="time">30</span>秒</div>
+    <div class="game-grid" id="gameGrid">
+        <div class="hole" data-hole="1"><div class="mole"></div></div>
+        <div class="hole" data-hole="2"><div class="mole"></div></div>
+        <div class="hole" data-hole="3"><div class="mole"></div></div>
+        <div class="hole" data-hole="4"><div class="mole"></div></div>
+        <div class="hole" data-hole="5"><div class="mole"></div></div>
+        <div class="hole" data-hole="6"><div class="mole"></div></div>
+        <div class="hole" data-hole="7"><div class="mole"></div></div>
+        <div class="hole" data-hole="8"><div class="mole"></div></div>
+        <div class="hole" data-hole="9"><div class="mole"></div></div>
+    </div>
+
+    <!-- 再来一次按钮 -->
+    <div class="restart-screen" id="restartScreen" style="display: none;">
+        <h2>游戏结束！</h2>
+        <button id="restartButton">再来一次</button>
+    </div>
+
+    <script src="./mouse.js"></script>
+</body>
+</html>

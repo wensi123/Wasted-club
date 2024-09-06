@@ -1,0 +1,32 @@
+/* 导航栏样式 */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #a0deed;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 50px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color:black;
+}
+
+.active {
+    background-color: #42474b;
+}
+
+#user {
+    float: right;
+}

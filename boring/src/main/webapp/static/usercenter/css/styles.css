@@ -1,0 +1,282 @@
+
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --background-color: #ecf0f1;
+    --text-color: #34495e;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.header-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../../img/usercenter1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+.PersonTop {
+    width: 1000px;
+    height: auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-top: 50px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.PersonTop:hover {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.PersonTop_img {
+    position: relative;
+    width: 150px;
+    height: 120px;
+    background-color: #8c939d;
+    margin-right: 24px;
+    margin-left: 20px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.PersonTop_img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.avatar-upload-btn {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.PersonTop_img:hover .avatar-upload-btn {
+    opacity: 1;
+}
+
+.PersonTop_text {
+    flex: 1;
+}
+
+.user_name {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+}
+
+.user-v {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.user-v-img {
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+}
+
+.user-v-font {
+    font-size: 14px;
+    color: var(--primary-color);
+}
+
+.user_qianming {
+    font-size: 16px;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.user_num {
+    display: flex;
+    justify-content: space-between;
+    max-width: 300px;
+}
+
+.user_num > div {
+    text-align: center;
+    padding: 0 15px;
+    border-right: 1px solid #e0e0e0;
+}
+
+.user_num > div:last-child {
+    border-right: none;
+}
+
+.num_text {
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.num_number {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.person_body {
+    width: 1000px;
+    margin-top: 30px;
+    display: flex;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 30px;
+}
+
+.person_body_left, .person_body_right {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.person_body_left:hover, .person_body_right:hover {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.person_body_left {
+    width: 25%;
+}
+
+.person_body_right {
+    width: 75%;
+}
+
+.person_body_list {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.el-menu-item {
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.el-menu-item:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+.el-menu-item > span {
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+.box-card {
+    height: auto;
+    min-height: 500px;
+}
+
+.el-button {
+    min-width: 84px;
+}
+
+/* 在线时长统计组件样式 */
+.online-time {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.online-time h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+}
+
+.online-time .box-card {
+    margin-bottom: 20px;
+    min-height: auto;
+}
+
+.online-time .el-card__header {
+    padding: 10px 15px;
+}
+
+.online-time .el-card__body {
+    padding: 15px;
+}
+
+.online-time .clearfix {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.online-time .el-progress {
+    margin-bottom: 10px;
+}
+
+.online-time p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+/* 覆盖 Element UI 的默认样式 */
+.el-progress-bar__outer {
+    background-color: rgba(52, 152, 219, 0.2);
+}
+
+.el-progress-bar__inner {
+    transition: width 0.6s ease;
+}
+
+.el-progress__text {
+    font-size: 12px !important;
+    color: var(--secondary-color);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .online-time {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+
+    .online-time .box-card {
+        margin-bottom: 15px;
+    }
+}
+
+.info-actions {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.info-actions .el-button {
+    margin-left: 10px;
+}
+
+.el-descriptions-item__content .el-input,
+.el-descriptions-item__content .el-select,
+.el-descriptions-item__content .el-input-number {
+    width: 100%;
+}

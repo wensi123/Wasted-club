@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="./login.css">
+</head>
+<body>
+<div class="shell">
+    <div class="box-left">
+        <h2>Welcome</h2>
+        <span>欢迎继续无聊的航行</span>
+        <div class="loader"></div>
+    </div>
+    <div class="box-right">
+        <!-- 添加忘记密码按钮 -->
+        <button class="forgot-password">忘记密码</button>
+
+        <div class="form">
+            <form id="loginForm">
+                <label for="email">邮箱</label>
+                <input type="email" id="email" name="email" required>
+                <label for="password">密码</label>
+                <input type="password" id="password" name="password" required>
+                <input type="submit" id="login" value="登录">
+            </form>
+        </div>
+
+        <!-- 显示登录错误的消息 -->
+        <div id="error-message" class="error-message" style="color: red; display: none;">
+            登录失败，请检查您的邮箱和密码。
+        </div>
+
+        <div class="convert">
+            <a id="ToRegister" href="./register.html">没有账号？立即注册</a>
+        </div>
+    </div>
+</div>
+<!-- 找回密码弹窗 -->
+<div class="popup" id="security-question-popup" style="display: none;">
+    <div class="popup-header">
+        <h3>密保问题：您的生日</h3>
+        <form id="security-question-form">
+            <label for="email-input">邮箱</label>
+            <input type="email" id="email-input" name="email" required>
+
+            <label for="answer-input">答案（格式：19890101）</label>
+            <input type="text" id="answer-input" name="answer" required>
+
+
+        </form>
+        <div class="button">
+            <button class="close-popup">取消</button>
+            <button class="confirm-button">确认</button>
+        </div>
+
+    </div>
+</div>
+
+    <script>
+        // 捕获表单的提交事件，使用 Fetch API 发送异步请求到 Servlet
+        //登录请求
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // 阻止表单的默认提交行为
+
+            // 获取输入的邮箱和密码
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            // 添加调试信息
+            console.log("Email: ", email);
+            console.log("Password: ", password);
+
+            // 通过 Fetch API 发送 POST 请求到 Servlet
+            fetch('/MyWebApp/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`
+            })
+                .then(response => {
+                    console.log("Response status: ", response.status);
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("Response data: ", data);
+                    if (data.status === "success") {
+                        // 登录成功，显示成功消息并跳转页面
+                        alert("登录成功！");
+                        window.location.href = '../home/home.html';  // 跳转到主页或其他页面
+                    } else {
+                        // 登录失败，显示错误提示
+                        alert("登录失败: " + data.message);
+                    }
+                })
+                .catch(error => {
+                    // 处理登录失败的情况，显示错误信息
+                    console.error("Error during login request:", error);
+                    let errorMessage = document.getElementById("error-message");
+                    errorMessage.textContent = error.message;
+                    errorMessage.style.display = 'block';
+                });
+        });
+        //点击忘记密码后后跳转
+        document.querySelector('.forgot-password').addEventListener('click', function () {
+            const popup = document.querySelector('.popup');
+            console.log(popup);  // 确认是否正确获取到弹窗元素
+            popup.style.height = 'auto';  // 设置弹窗高度为自动调整
+            popup.style.display = 'block';  // 显示弹窗
+        });
+
+        document.querySelector('.close-popup').addEventListener('click', function () {
+            document.querySelector('.popup').style.display = 'none';
+        });
+
+        // 点击确认按钮后校验密保问题
+        document.querySelector('.confirm-button').addEventListener('click', function () {
+            const email = document.getElementById('email-input').value;
+            const answer = document.getElementById('answer-input').value;
+
+            // 使用 Fetch API 发送 POST 请求到 Servlet
+            fetch('/MyWebApp/SecurityAnswer', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `email=${encodeURIComponent(email)}&answer=${encodeURIComponent(answer)}`
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === "success") {
+                        alert("密保问题回答正确！");
+                        // 校验成功，跳转到首页
+                        window.location.href = data.redirect;
+                    } else {
+                        alert(data.message);  // 校验失败，显示错误提示
+                    }
+                })
+                .catch(error => console.error("出现错误:", error));
+        });
+
+    </script>
+</body>
+</html>

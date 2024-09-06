@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>无聊</title>
+    <link rel="stylesheet" href="./medal.css"> <!-- 外部CSS路径 -->
+</head>
+<body>
+    <!-- 导航栏home/rank/medal（成就）/about -->
+    <ul>
+        <li><a href="../home/home.html">首页</a></li>
+        <li><a href="../rank/rank.html">排行榜</a></li>
+        <li><a class="active" href="./medal.html">成就栏</a></li>
+        <li><a href="../about/about.html">关于我们</a></li>
+        <li id="user"><a href="../usercenter/index.html">用户中心</a></li>
+    </ul>
+
+    <div class="title">
+        <h1>欢迎来到成就系统</h1>
+        <h3>摸鱼这件事也要卷我一下吗 朋友<h3>
+    </div>
+
+    <div class="container">
+        <!-- 左侧部分 -->
+        <div class="left-column">
+            <h2>关于成就系统</h2> <!-- 新增标题 -->
+            <div class="left-top">
+                <div class="box">统计无聊的成就也是无聊的一部分</div>
+                <div class="box">都已经在摸鱼了 所以成就也只有11条</div>
+            </div>
+            <textarea class="comment-box" placeholder="发一条不会被保存的评论吧"></textarea>
+            <div class="button-group">
+                <button class="btn_sent">发送</button>
+                <button class="btn">查看开发者评论</button>
+            </div>
+        </div>
+
+        <!-- 右侧部分 -->
+        <div class="right-column">
+            <h2>历史成就列表</h2> <!-- 新增标题 -->
+            <h3>"时间浪费指南"<h3>
+            <div class="button-group">
+                <button class="btn">查看所有成就</button>
+            </div>
+            <div class="gif">
+                <img id="gif-image" src="../img/medal_img/猫猫.gif" alt="GIF Image">
+            </div>
+        </div>
+    </div>
+    <!-- 评论区 -->
+    <div class="comment-section">
+        <!-- 示例评论 -->
+        <div class="comment">
+            <img src="../img/medal_img/踹手手.png" alt="User1 Avatar" class="avatar"> 
+            <div class="comment-content">
+                <h4>开发者1号机</h4> 
+                <p>真的有人会在摸鱼网站看成就系统吗</p> 
+            </div>
+        </div>
+        <div class="comment">
+            <img src="../img/medal_img/蜘蛛小紫.png" alt="User2 Avatar" class="avatar"> 
+            <div class="comment-content">
+                <h4>开发者2号机</h4> 
+                <p>大概率是历史上最无聊的成就系统</p> 
+            </div>
+        </div>
+        <div class="comment">
+            <img src="../img/medal_img/旺财旺财.png" alt="User3 Avatar" class="avatar"> 
+            <div class="comment-content">
+                <h4>开发者3号机</h4> 
+                <p>送给那些在steam游戏中拿不到所有成就的人类</p> 
+            </div>
+        </div>
+        <div class="comment">
+            <img src="../img/medal_img/兔子挂牌.png" alt="User4 Avatar" class="avatar"> 
+            <div class="comment-content">
+                <h4>开发者4号机</h4> 
+                <p>欢迎来到wasted club，看点无聊成就</p> 
+            </div>
+        </div>
+        <div class="comment">
+            <img src="../img/medal_img/鲸鱼蓝蓝.png" alt="User5 Avatar" class="avatar"> 
+            <div class="comment-content">
+                <h4>开发者5号机</h4> 
+                <p>摸一点鱼 摸一点是一点</p> 
+            </div>
+        </div>
+        
+
+        
+    <div>
+    <!-- 全部成就列表弹窗 -->
+    <div class="popup">
+    <div class="popup-header">
+        <h2>成就列表</h2>
+        <span class="close-popup">关闭</span>
+    </div>
+    <div class="popup-content">
+        <ul class="achievement-list">
+           <!-- 成就列表可以不写入数据库，在页面接收到信息的时候修改这部分的class -->
+            <li class="achieved" data-achievement-id="1">[摸一点鱼]：注册一个账号</li>
+            <li class="unachieved" data-achievement-id="2">[さあ、ゲームを始めましょう]：开始航行</li>
+            <li class="unachieved" data-achievement-id="3">[This is true music]：听第一个音频</li>
+            <li class="unachieved" data-achievement-id="4">[let me talk！]：发送一条不会被保存的评论</li>
+            <li class="unachieved" data-achievement-id="5">[你没有微信吗]：玩跳一跳</li>
+            <li class="unachieved" data-achievement-id="6">[今天吃什么]：玩随机食物</li>
+            <li class="unachieved" data-achievement-id="7">[被摸鱼背刺]：在继续工作页面选择摸鱼</li>
+            <li class="achieved" data-achievement-id="8">[摸鱼也要卷]：查看自己的历史成就</li>
+            <li class="unachieved" data-achievement-id="9">[海鸥！]：在"今天吃什么"中随机到薯条</li>
+            <li class="unachieved" data-achievement-id="10">[这是陷井]：玩井字棋游戏</li>
+            <li class="unachieved" data-achievement-id="11">[写成就的是什么无聊的人]：查看开发者评论</li>
+        
+        </ul>
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./medal.js"></script> <!-- 引用外部JS文件 -->
+</body>
+</html>

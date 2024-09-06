@@ -1,0 +1,137 @@
+/* styles.css */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+#open-popup-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.background {
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.popup {
+    width: 600px; /* 设置弹窗宽度 */
+    height: 650px; /* 设置弹窗高度 */
+    background-color: white;
+    border-radius: 60px; /* 圆角更大以适应新尺寸 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    padding: 30px;
+    background-image: url('../img/snake_img/beach-background.jpg'); /* 使用背景图片 */
+    background-size: cover;
+    background-position: center; /* 使背景图片居中显示 */
+    position: relative;
+}
+
+.game-display {
+    background-color: #a8d96f;
+    border-radius: 60px;
+    width: 80%; /* 更宽以适应弹窗 */
+    height: 50%; /* 更高的高度 */
+    position: relative;
+    margin: 60px auto 20px auto; /* 调整位置，使其稍微下移 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.game-display img {
+    width: 100%;
+    height: auto;
+    border-radius: 60px;
+}
+
+.arrow-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+.message {
+    font-size: 40px; /* 字体稍大 */
+    margin: 50px auto 30px auto; /* 调整与上下元素的间距 */
+    background-color: white;
+    border-radius: 30px;
+    padding: 10px 15px;
+    width: 75%; /* 与绿色框一致 */
+    height: 60px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
+    text-align: center; /* 使文字居中对齐 */
+    display: flex; /* 使用flex布局来居中内容 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    border: 2px solid #ccc; /* 设置边框：2px宽，实线，灰色 */
+    font-family: 'Noto Sans SC', Courier, monospace; /* 修改字体为等宽字体 */
+    font-weight: bold; /* 加粗字体 */
+    color: #87C7EE; /* 设置字体颜色，例如深灰色 */
+    letter-spacing: 10px; /* 设置字母间距，1px为例 */
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 75%; /* 按钮容器宽度适应新尺寸 */
+    margin: auto; /* 中心对齐 */
+    position: absolute;
+    bottom: 30px; /* 将按钮放置在弹窗的底部 */
+    left: 0;
+    right: 0;
+    /* padding: 0 20px; 调整左右内边距 */
+}
+
+
+.cancel-btn, .confirm-btn {
+    background-color: white;
+    border: 2px solid #ccc; /* 设置边框：2px宽，实线，灰色 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
+    border-radius: 50%;
+    width: 100px; /* 增加按钮尺寸 */
+    height: 100px; /* 增加按钮尺寸 */
+    font-size: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cancel-btn:hover, .confirm-btn:hover {
+    background-color: #f0f0f0; /* 鼠标悬停时按钮的背景颜色 */
+}
+
+.cancel-btn {
+    color: #EE8787;
+}
+
+.confirm-btn {
+    color: #87C7EE;
+}

@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    background-image: url('../img/tictactoe_img/background.jpg'); /* 添加背景图片 */
+    background-size: cover; /* 覆盖整个页面 */
+    background-position: center; /* 将图片置于页面中心 */
+    background-repeat: no-repeat; /* 不重复图片 */
+    background-attachment: fixed; /* 固定背景图片 */
+}
+
+.container {
+    text-align: center;
+    position: relative;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+.player-info {
+    position: relative;
+    display: flex;
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    cursor: pointer;
+}
+
+.player-avatar {
+    margin-left: 10px;
+    position: relative;
+}
+.player-info:hover::after {
+    content: "玩家1: 名字, 等级";
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background: #fff;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+
+.player-avatar1 img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.player-avatar:hover::after {
+    content: attr(data-info);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background: #fff;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+.status, .scoreboard, .timer {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.mode-selection {
+    margin-top: 10px;
+}
+
+.board {
+    position: relative;
+    width: 450px; 
+    height: 450px; 
+    margin-top: 20px;
+}
+
+.cell {
+    width: 150px; 
+    height: 150px; 
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid #333; /* 添加背景格子的边框 */
+    background-color: #fff; /* 背景格子颜色 */
+}
+
+.cell::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #333;
+    background: radial-gradient(circle, transparent 98%, #333 99%);
+}
+
+.cell img {
+    max-width: 70%; /* 棋子大小调整为格子的70% */
+    max-height: 70%;
+}
+
+.cell[data-index="0"] { top: 0; left: 0; }
+.cell[data-index="1"] { top: 0; left: 150px; }
+.cell[data-index="2"] { top: 0; left: 300px; }
+.cell[data-index="3"] { top: 150px; left: 0; }
+.cell[data-index="4"] { top: 150px; left: 150px; }
+.cell[data-index="5"] { top: 150px; left: 300px; }
+.cell[data-index="6"] { top: 300px; left: 0; }
+.cell[data-index="7"] { top: 300px; left: 150px; }
+.cell[data-index="8"] { top: 300px; left: 300px; }

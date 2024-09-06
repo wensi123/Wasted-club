@@ -1,0 +1,203 @@
+/* 设置整个页面的背景和字体 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/ocean_background.jpg'); /* 替换为你的背景图片路径 */
+    background-size: cover; /* 背景图片覆盖整个页面 */
+    background-repeat: no-repeat; /* 背景图片不重复 */
+    display: flex; /* 使用 Flexbox 布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    height: 100vh; /* 使页面高度覆盖整个视窗 */
+
+    animation: moveBackground 20s linear infinite; /* 背景移动动画 */
+
+    overflow: hidden; /* 防止背景或内容超出视口 */
+}
+
+/* 动态背景移动动画关键帧 */
+@keyframes moveBackground {
+    0% {
+        background-position: center center;
+    }
+    50% {
+        background-position: center top; /* 向上移动 */
+    }
+    100% {
+        background-position: center center; /* 返回初始位置 */
+    }
+}
+
+/* 容器样式 */
+.container {
+    text-align: center; /* 文字居中 */
+    padding: 2vw; /* 内边距，使用视窗宽度的百分比 */
+    background-color: rgba(255, 255, 255, 0.7); /* 背景颜色，轻微透明度以突出 */
+    border-radius: 1.5vw; /* 容器圆角，使用视窗宽度的百分比 */
+    box-shadow: 0 0 1.5vw rgba(0, 0, 0, 0.3); /* 容器阴影效果 */
+    width: 90vw; /* 容器宽度设置为视窗的80% */
+    max-width: 1200px; /* 容器的最大宽度限制为1200px */
+    height: auto; /* 高度自动，根据内容调整 */
+    margin: 2vw; /* 容器周围的外边距 */
+    max-height: 90vh; /* 防止容器高度超出视口 */
+    overflow: auto; /* 内容超出时显示滚动条 */
+}
+
+/* 标题样式 */
+header h1 {
+    background-color: rgb(243, 243, 243); /* 背景颜色为白色 */
+    display: inline-block; /* 内联块 */
+    padding: 2vw 4vw; /* 内边距，使用视窗宽度的百分比 */
+    border-radius: 2vw; /* 圆角 */
+    box-shadow: 0 0 1vw rgba(0, 0, 0, 0.1); /* 阴影效果 */
+    border: 0.1vw solid rgb(193, 193, 193); /* 边框颜色 */
+    font-size: 2vw; /* 字体大小，使用视窗宽度的百分比 */
+}
+
+/* 网格布局 */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 三列布局 */
+    gap: 2vw; /* 网格间距，使用视窗宽度的百分比 */
+    width: 100%; /* 网格宽度占满容器 */
+    justify-items: center; /* 水平居中对齐每个网格项 */
+}
+
+/* 每个槽位的样式，白色背景和圆角 */
+.slot {
+    background-color: rgb(243, 243, 243); /* 纯白背景 */
+    padding: 2%; /* 内边距，使用槽位大小的百分比 */
+    border-radius: 2vw; /* 圆角 */
+    box-shadow: 0 0 1vw rgba(0, 0, 0, 0.2); /* 阴影效果 */
+    width: 90%; /* 宽度相对父元素调整 */
+    aspect-ratio: 1 / 1; /* 保持方形比例 */
+    display: flex; /* 使用 Flexbox */
+    flex-direction: column; /* 垂直方向排列 */
+    justify-content: flex-start; /* 子元素从顶部开始排列 */
+    align-items: center; /* 水平居中 */
+    transition: transform 0.3s ease; /* 平滑过渡效果 */
+    justify-content: center;
+}
+
+/* 鼠标悬停时的放大效果 */
+.slot:hover {
+    transform: scale(1.1); /* 放大 10% */
+}
+
+/* 图片样式 */
+.slot img {
+    width: 80%; /* 图片宽度相对槽位宽度 */
+    height: auto; /* 图片高度自动 */
+    border-radius: 0.5vw; /* 图片圆角 */
+    object-fit: contain; /* 保持图片的纵横比 */
+    margin-bottom: 5%; /* 图片与名称之间的距离，以槽位高度为参考 */
+}
+
+/* 游戏名称的小方框样式 */
+.game-name {
+    background-color: rgba(255, 255, 255); /* 白色背景 */
+    color: rgb(0, 0, 0); /* 黑色文字 */
+    padding: 1vw; /* 内边距 */
+    border-radius: 5vw; /* 圆角 */
+    font-size: 1.5vw; /* 字体大小，使用视窗宽度的百分比 */
+    width: 80%; /* 宽度与图片一致 */
+    text-align: center; /* 文本居中 */
+    border: 0.1vw solid rgb(193, 193, 193); /* 边框颜色 */
+    display: flex; /* 使用 Flexbox */
+    justify-content: center; /* 水平居中对齐 */
+    align-items: center; /* 垂直居中对齐 */
+    height: auto; /* 自动高度，根据内容调整 */
+    min-height: 2vw; /* 最小高度，保持居中 */
+    max-width: 200px; /* 设置最大宽度 */
+    max-height: 50px; /* 设置最大高度 */
+    margin-top: 0.5em; /* 顶部间距 */
+}
+
+.popup-game-info {
+    font-size: 2vw; /* 使用视口宽度设置字体大小 */
+    color: #333; /* 设置文本颜色 */
+    padding: 2vw; /* 内边距 */
+    background-color: rgba(255, 255, 255, 0.8); /* 背景颜色 */
+    border-radius: 50px; /* 圆角 */
+    margin-top: 1vw; /* 顶部间距 */
+    width: 80%; /* 设置宽度相对于弹窗 */
+    height: auto; /* 自动高度，根据内容调整 */
+    text-align: center; /* 文本居中 */
+    margin-left: auto; /* 居中对齐 */
+    margin-right: auto; /* 居中对齐 */
+    min-height: 2vw; /* 最小高度，保持居中 */
+    max-width: 600px; /* 设置最大宽度 */
+}
+
+/* 弹出框的覆盖层样式 */
+.popup {
+    display: none; /* 初始隐藏 */
+    position: fixed; /* 固定在视口 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    z-index: 1000; /* 使其浮在所有内容上方 */
+}
+
+/* 弹出框内容的样式 */
+.popup-content {
+    background-color: #fff; /* 白色背景 */
+    border-radius: 20px; /* 圆角 */
+    width: 60vw; /* 固定宽度 */
+    max-width: 800px; /* 最大宽度 */
+    max-height: 80vh; /* 最大高度限制，防止超出视口 */
+    padding: 4vw; /* 内边距 */
+    text-align: center; /* 文本居中 */
+    position: relative; /* 相对定位 */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* 阴影效果 */
+    overflow: auto; /* 内容溢出时显示滚动条 */
+}
+
+/* 关闭按钮样式 */
+.close-btn {
+    position: absolute; /* 绝对定位 */
+    top: 5px;
+    right: 20px;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+/* 弹出框内部槽位内容 */
+#popup-slot-content {
+    display: flex; /* 使用 Flexbox */
+    flex-direction: column; /* 垂直排列 */
+    align-items: center; /* 水平居中 */
+    margin-bottom: 2vw; /* 与游戏介绍框的间距 */
+}
+
+/* 媒体查询：针对非常小的屏幕进行调整 */
+@media (max-width: 600px) {
+    .popup-content {
+        width: 90vw; /* 小屏幕上使用视口宽度的90% */
+        padding: 10px; /* 减少内边距 */
+        max-height: 90vh; /* 增大高度限制 */
+    }
+
+    .close-btn {
+        font-size: 20px; /* 减小关闭按钮的大小 */
+    }
+}
+
+/* 媒体查询：针对非常大的屏幕进行调整 */
+@media (min-width: 1600px) {
+    .popup-content {
+        width: 40vw; /* 超大屏幕上使用视口宽度的40% */
+        max-width: 1000px; /* 增加最大宽度限制 */
+        max-height: 70vh; /* 调整最大高度 */
+        padding: 30px; /* 增加内边距 */
+    }
+
+    .close-btn {
+        font-size: 30px; /* 调整关闭按钮的大小 */
+    }
+}

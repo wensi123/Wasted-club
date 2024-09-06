@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>停止摸鱼，开始工作</title>
+    <script src="../recordGame.js" defer></script>
+    <link rel="stylesheet" href="./work.css"> <!-- 引用外部CSS文件 -->
+</head>
+<body data-game-name="开始工作">
+    <div class="container">
+        <h1>停止摸鱼，开始工作</h1>
+        <div class="content">
+            <p>接着干吧，剩下的我再想想办法
+                <button class="fish-btn" onclick="fakeButton()">接着摸鱼！</button>
+            </p>
+        </div>
+    </div>
+    <script>
+        // 定义弹窗的函数
+        function fakeButton() {
+            const achievementId = 7;  // 假设这是完成的成就 ID
+            localStorage.setItem('completedAchievement', achievementId.toString());
+
+            alert("这是假的按钮 嘻嘻");
+        }
+    </script>
+</body>
+</html>

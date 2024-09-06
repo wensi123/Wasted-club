@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+h1 {
+    color: #333;
+}
+
+.start-screen, .restart-screen {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.difficulty-button, #restartButton {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.score-board, .time-board {
+    font-size: 24px;
+    margin: 10px 0;
+    display: none; /* 初始隐藏，开始游戏后显示 */
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    grid-gap: 20px;
+    margin-top: 20px;
+    display: none; /* 初始隐藏，开始游戏后显示 */
+}
+
+.hole {
+    width: 150px;
+    height: 150px;
+    background-color: #8B4513;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.mole {
+    width: 120px;  /* 地鼠的宽度 */
+    height: 120px; /* 地鼠的高度 */
+    background-color: #000;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -120px; /* 初始位置在洞下 */
+    left: 15px;     /* 确保地鼠在洞中水平居中 */
+    transition: bottom 0.3s;
+}
+
+.hole.up .mole {
+    bottom: 0px; /* 当地鼠弹出时，与洞的下边缘对齐 */
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寻宝图鉴</title>
+    <link rel="stylesheet" href="./illustration.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>寻宝图鉴</h1>
+    </header>
+
+    <div class="grid" id="game-grid">
+        <!-- 游戏插槽将动态生成 -->
+    </div>
+</div>
+
+<!-- 弹出框 -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <!-- 动态填充内容 -->
+        <div id="popup-slot-content"></div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 当页面完全加载后，发送请求获取游戏数据
+        fetch('/MyWebApp/illustration', {  // 发送 GET 请求到 '/MyWebApp/illustration'
+            method: 'GET',  // 请求方法为 GET
+            headers: {
+                'Content-Type': 'application/json'  // 设置请求头为 JSON 类型，表明接受和发送的内容为 JSON 格式
+            },
+        })
+            .then(response => {
+                // 检查响应状态
+                if (response.ok) {  // 如果响应状态码为 200，表示请求成功
+                    return response.json(); // 解析响应为 JSON 数据格式
+                } else if (response.status === 401) {  // 如果响应状态为 401，表示用户未登录
+                    alert('用户未登录，请先登录');  // 弹出提示框提醒用户需要登录
+                } else {
+                    throw new Error('获取数据时发生错误');  // 如果状态码不是 200 或 401，抛出错误
+                }
+            })
+            .then(data => {
+                // 处理解析后的数据
+                console.log("返回的数据:", data); // 打印从服务器返回的数据，便于调试
+
+                if (data) {  // 如果数据存在，开始动态创建游戏展示元素
+                    var gameGrid = document.getElementById('game-grid');  // 获取用于展示游戏的 grid 容器元素
+                    gameGrid.innerHTML = '';  // 清空现有的内容，确保新的数据不会追加到旧数据上
+
+                    data.forEach(game => {  // 遍历返回的游戏数据数组
+                        // 创建包含游戏信息的槽位元素
+                        var slotDiv = document.createElement('div');
+                        slotDiv.className = 'slot';  // 设置槽位的 class 为 'slot'
+                        slotDiv.setAttribute('onclick', 'showPopup(this)');  // 为槽位添加点击事件，当点击时显示弹出框
+                        slotDiv.setAttribute('data-info', game.description);  // 设置自定义属性 'data-info'，存储游戏的描述
+
+                        // 创建并设置游戏图标
+                        var img = document.createElement('img');
+                        // 设置图标的路径，假设后端返回的是图片文件名
+                        img.src = `/MyWebApp/static/img/${game.icon}`;  // 拼接本地图片路径
+                        img.alt = '游戏设备';  // 设置图片的 alt 属性，作为占位符文本
+
+                        // 创建并设置游戏名称元素
+                        var gameNameDiv = document.createElement('div');
+                        gameNameDiv.className = 'game-name';  // 设置 class 为 'game-name'
+                        gameNameDiv.textContent = game.gameName;  // 将游戏名称设置为元素的文本内容
+                        console.log("游戏名称:", game.gameName);  // 打印游戏名称进行调试，确保数据正确
+
+                        // 将图片和游戏名称添加到槽位元素中
+                        slotDiv.appendChild(img);
+                        slotDiv.appendChild(gameNameDiv);
+                        // 将槽位元素添加到游戏 grid 容器中
+                        gameGrid.appendChild(slotDiv);
+                    });
+                }
+            })
+            .catch(error => {
+                // 捕获请求或数据处理中的任何错误
+                console.error('请求游戏数据时发生错误:', error);  // 打印错误信息以便调试
+            });
+    });
+</script>
+
+<script src="illustration.js"></script>
+</body>
+</html>

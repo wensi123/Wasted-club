@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <link rel="stylesheet" href="./register.css">
+</head>
+
+<body>
+<div class="shell">
+    <div class="box-left">
+        <h2>Join Us</h2>
+        <span>欢迎开启无聊的旅程！</span>
+        <div class="loader"></div>
+    </div>
+    <div class="box-right">
+        <div class="form">
+            <form id="registerForm">
+                <label for="username">用户名</label>
+                <input type="text" id="username" name="username" required>
+                <label for="email">邮箱</label>
+                <input type="email" id="email" name="email" required>
+                <label for="password">密码</label>
+                <input type="password" id="password" name="password" required>
+                <input type="submit" id="register" value="注册">
+            </form>
+        </div>
+
+        <!-- 显示注册错误的消息 -->
+        <div id="error-message" class="error-message" style="color: red; display: none;">
+            注册失败，请检查您的输入信息。
+        </div>
+
+        <div class="convert">
+            <a id="ToLogin" href="./login.html">已有账号？立即登录</a>
+        </div>
+    </div>
+</div>
+<script>
+    // 捕获表单的提交事件，使用 Fetch API 发送异步请求到 Servlet
+    document.getElementById("registerForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // 阻止表单的默认提交行为
+
+        // 获取输入的用户名、邮箱和密码
+        let username = document.getElementById("username").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+
+        // 添加调试信息
+        console.log("Username: ", username);
+        console.log("Email: ", email);
+        console.log("Password: ", password);
+
+        // 通过 Fetch API 发送 POST 请求到 Servlet
+        fetch('/MyWebApp/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: `username=${encodeURIComponent(username)}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`
+        })
+            .then(response => {
+                console.log("Response status: ", response.status);
+                return response.json();
+            })
+            .then(data => {
+                console.log("Response data: ", data);
+                if (data.status === "success") {
+                    // 注册成功，显示成功消息并跳转页面
+                    alert("注册成功！");
+                    window.location.href = '../login/login.html';  // 跳转到登录页面
+                } else {
+                    // 注册失败，显示错误提示
+                    alert("注册失败: " + data.message);
+                }
+            })
+            .catch(error => {
+                // 处理注册失败的情况，显示错误信息
+                console.error("Error during registration request:", error);
+                let errorMessage = document.getElementById("error-message");
+                errorMessage.textContent = error.message;
+                errorMessage.style.display = 'block';
+            });
+    });
+</script>
+</body>
+
+</html>

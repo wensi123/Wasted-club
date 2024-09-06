@@ -1,0 +1,147 @@
+#mine {
+    margin: 50px auto;
+    width: calc(100% - 200px); 
+    background: rgba(255, 255, 255, 0.6); 
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url('../img/mine_img/back.png');
+    background-size: covor;
+    margin: 0;
+    padding: 0;
+}
+
+.message{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.message-content{
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.level {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.level button {
+    padding: 5px 15px;
+    background-color: #00abff;
+    border: none;
+    color: #fff;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+}
+
+.level button.active {
+    background-color:#9999ff ;
+}
+
+table {
+    border-spacing: 1px;
+    background-color: #929196;
+    margin: 0 auto;
+}
+
+td {
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #ccc;
+    border: 2px solid;
+    border-color: #fff #a1a1a1 #a1a1a1 #fff;
+    text-align: center;
+    line-height: 20px;
+    font-weight: bold;
+
+}
+
+.tips {
+    color: #66b2ff;
+    font-size: 16px;
+}
+
+.mine {
+    background: #d9d9d9 url('../img/mine_img/mine.png') no-repeat center;
+    background-size: cover;
+}
+
+.flag {
+    background: #ccc url('../img/mine_img/flag.png') no-repeat center;
+    background-size: cover;
+}
+
+.gameinfo {
+    margin-top: 10px;
+    text-align: center;
+}
+
+
+td.zero {
+    background-color: #d9d9d9;
+    border-color: #d9d9d9;
+}
+
+td.one {
+    background-color: #d9d9d9;
+    border-color: #d9d9d9;
+    color: #0332fe;
+}
+
+td.two {
+    background-color: #d9d9d9;
+    border-color: #d9d9d9;
+    color: #019f02;
+}
+
+td.three {
+    background-color: #d9d9d9;
+    border-color: #d9d9d9;
+    color: #ff2600;
+}
+
+td.four {
+    background-color: #d9d9d9;
+    border-color: #d9d9d9;
+    color: #93208f;
+}
+
+td.five {
+    background-color: #d9d9d9;
+    border-color: #d9d9d9;
+    color: #ff7f29;
+}
+
+td.six {
+    background-color: #d9d9d9;
+    border-color: #d9d9d9;
+    color: #ff3fff;
+}
+
+td.seven {
+    background-color: #d9d9d9;
+    border-color: #d9d9d9;
+    color: #3fffbf;
+}
+
+td.eight {
+    background-color: #d9d9d9;
+    border-color: #d9d9d9;
+    color: #22ee0f;
+}

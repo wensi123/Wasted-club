@@ -1,0 +1,193 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size:100% 100%;
+    background-image: url("../img/login0.png");
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+}
+.shell{
+    width: 640px;
+    height: 320px;
+    display: flex;
+    
+}
+.box-left{
+    height: 280px;
+    top: 20px;
+    position: relative;
+    width: 50%;
+    background-image:url("../img/login1.jpg");
+    background-size:100% 100%;
+    border-radius:5px;
+}
+
+.box-left h2{
+    font: 900 50px '';
+    color:#fff;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 60px 20px 40px;
+}
+.box-left span{
+    display: block;
+    color: #fff;
+
+    margin: 60px 20px 40px;
+}
+
+.box-right{
+    background-color: #b3c4c4;
+    box-shadow: 0 0 40px 16px rgba(0,0,0,.2);
+    color: #f1f1f2;
+    width: 50%;
+    border-radius: 5px;
+    
+}
+.form{
+    margin: 40px;
+    position: absolute;
+}
+label{
+    color: #000;
+    display: block;
+    font-size: 14px;
+    height: 16px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    position: relative;
+}
+input{
+    background: transparent;
+    border: 0;
+    color: #f2f2f2;
+
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    outline: none !important;
+}
+label::before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 52px;
+    width: 100%;
+    height: 3px;
+    background-image: linear-gradient(to right,#70ae37,#1332a4);  
+}
+#login{
+    color: #fff;
+    margin-top: 60px;
+    width: 100px;
+    height: 35px;
+    background-color: #0e0d0d;
+    border-radius: 20px;
+    float: right;
+    transition: .3s;
+}
+#login:hover{
+    letter-spacing: 2px;
+    color: #fff;
+    background-color: #393939;
+}
+.convert{
+    margin-top:275px;
+    margin-left:30px;
+}
+#ToRegister{
+    color:#000;
+    text-decoration: none;
+}
+
+.loader {
+    display: inline-flex;
+    gap: 10px;
+    margin-left:200px;
+    position: relative;
+    top: -60px;
+  }
+  .loader:before,
+  .loader:after {
+    content: "";
+    height: 20px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background:
+      linear-gradient(#222 0 0) top/100% 40% no-repeat,
+      radial-gradient(farthest-side,#000 95%,#0000) 50%/8px 8px no-repeat
+      #fff;
+    animation: l7 1.5s infinite alternate ease-in;
+  }
+  @keyframes l7 {
+    0%,
+    70% {background-size:100% 40%,8px 8px}
+    85% {background-size:100% 120%,8px 8px}
+    100% {background-size:100% 40%,8px 8px}
+}
+/* 忘记密码按钮样式 */
+.forgot-password {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background-color: #00abff;
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 12px;
+}
+#email-input{
+    color:black;
+}
+#answer-input{
+    color:black;
+}
+/*弹窗*/
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+}
+
+/* 取消按钮样式 */
+.close-popup {
+    background-color: #e74c3c; /* 取消按钮的背景颜色 */
+    color: white; /* 按钮文字颜色 */
+    border: none; /* 移除边框 */
+    padding: 8px 16px; /* 按钮的内边距 */
+    border-radius: 4px; /* 圆角边框 */
+    cursor: pointer; /* 鼠标指针样式 */
+    font-size: 14px; /* 字体大小 */
+    margin-right: 170px; /* 按钮之间的间距 */
+}
+
+/* 确认按钮样式 */
+.confirm-button {
+    margin-bottom:10px;
+    background-color: #2ecc71; /* 确认按钮的背景颜色 */
+    color: white; /* 按钮文字颜色 */
+    border: none; /* 移除边框 */
+    padding: 8px 16px; /* 按钮的内边距 */
+    border-radius: 4px; /* 圆角边框 */
+    cursor: pointer; /* 鼠标指针样式 */
+    font-size: 14px; /* 字体大小 */
+}
+.button{
+    margin-top:30px;
+}

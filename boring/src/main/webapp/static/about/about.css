@@ -1,0 +1,149 @@
+/* 导航栏样式 */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #a0deed;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 50px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color:black;
+}
+
+.active {
+    background-color: #42474b;
+}
+
+#user {
+    float: right;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #a0deed;
+    background-image: url('../img/about.jpg');
+    background-size: cover;
+}
+
+/* 第一个白色矩形样式 */
+.top {
+    width: calc(100% - 100px); /* 减去左右各50px的内边距 */
+    height: 280px;
+    position: absolute;
+    margin-top: 50px; /* 距离导航栏50px */
+    left: 50px; /* 距离左侧50px */
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
+}
+
+/* 第二个白色矩形样式 */
+.bottom {
+    width: calc(100% - 100px); /* 减去左右各50px的内边距 */
+    height: 280px;
+    position: absolute;
+    margin-top: 380px; /* 第一个矩形下方30px */
+    left: 50px; /* 距离左侧50px */
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
+}
+
+.content-box {
+    width: 100%; /* 占满整个矩形宽度 */
+    text-align: center; /* 文本居中 */
+}
+
+.content-box h1 {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.content-box h1:hover {
+    color: #a0deed;
+}
+
+.hidden {
+    display: none;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.visible {
+    display: block;
+    opacity: 1;
+    animation: fadeIn 1s ease forwards;
+    margin-top: 20px; /* 文本与标题之间的间距 */
+}
+
+/* 文字板块样式 */
+.panel {
+    background-color: rgba(255, 255, 255, 0.7); /* 半透明背景 */
+    margin: 10px; /* 每个板块之间的间距 */
+    padding: 10px; /* 内边距 */
+    border-radius: 8px; /* 圆角边框 */
+    text-align: center; /* 文字居中 */
+    font-size: 16px; /* 文字大小 */
+    transition: all 0.3s ease; /* 鼠标悬停效果 */
+    width: 150px; /* 每个板块的固定宽度 */
+    flex-shrink: 0; /* 防止板块缩小 */
+}
+
+.panel:hover {
+    background-color: #a0deed; /* 鼠标悬停时的背景颜色 */
+    color: white; /* 鼠标悬停时的文字颜色 */
+}
+
+/* 确保隐藏元素无法遮挡点击 */
+.hidden {
+    display: none;
+    opacity: 0;
+    pointer-events: none; /* 禁用鼠标事件 */
+    transition: all 0.5s ease;
+}
+
+.visible {
+    display: flex; /* 使子元素的排列显示出来 */
+    opacity: 1;
+    animation: fadeIn 1s ease forwards;
+    margin-top: 20px; /* 文本与标题之间的间距 */
+    justify-content: space-around; /* 水平排列子元素 */
+}
+/* 使第一个白色框内容竖排 */
+#what-we-do-text {
+    display: block; /* 默认块级显示 */
+    margin-top: 20px; /* 添加一点间距 */
+}
+
+/* 使板块水平排列 */
+#us-text {
+    display: flex;
+    flex-direction: row; /* 水平排列子元素 */
+    justify-content: center; /* 居中对齐子元素 */
+    align-items: center; /* 垂直居中对齐子元素 */
+    width: 100%; /* 父容器宽度 */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

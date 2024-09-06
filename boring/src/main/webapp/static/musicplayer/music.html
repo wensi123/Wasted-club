@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐播放器</title>
+    <script src="../recordGame.js" defer></script>
+    <link rel="stylesheet" href="./music.css">
+</head>
+<body data-game-name="音乐播放器">
+    <div class="main-container">
+        <h1>整点欢乐的小曲儿</h1>
+        <h3>上传文件自动读取mp3<h3>
+        <button onclick="redirectToWebsite()">在这里你可以下载MP3</button>
+        <div class="container">
+            <div class="left-side">
+                <div class="left-side">
+                    <img id="gif-image" src="../img/medal_img/猫猫.gif" alt="GIF Image">
+                </div>
+            </div>
+            <div class="right-side">
+                <input type="file" id="folder-input" webkitdirectory mozdirectory directory>
+                <button id="random-play-btn" disabled>开始随机</button>
+                <audio id="audio-player" controls></audio>
+                <ul id="file-list"></ul>
+                <p id="random-track-name"></p>
+            </div>
+        </div> 
+        
+    </div>
+   
+
+    <script src="./music.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+/* /discovery/css/discovery-styles.css */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* 防止滚动条出现 */
+}
+
+.new-background {
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* 确保子元素垂直堆叠 */
+    justify-content: flex-end;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    cursor: pointer; /* 鼠标悬停变为手型，提示可点击 */
+}
+
+.deck-image {
+    width: 100%;  /* 甲板图像填满整个背景 */
+    max-height: 60vh; /*确保甲板图像不超过屏幕高度的一半*/
+    height: auto; /* 保持图片的比例 */
+    object-fit: cover; /* 确保图片覆盖宽度，同时保持纵横比 */
+    position: absolute;
+    z-index: 1; /* 背景层 */
+}
+
+.sailor-image {
+    width: 200px; /* 调整船员图像大小 */
+    height: auto; /* 保持图片比例 */
+    position: absolute;
+    bottom: 20px; /* 距离底部的距离 */
+    left: 50px; /* 距离左侧的距离 */
+    z-index: 2; /* 高于甲板层 */
+}
+
+.speech-bubble {
+    width: 200px; /* 固定对话框的宽度 */
+    position: absolute;
+    top: 340px;
+    left: 160px;
+    background: #A97A44;
+    border-radius: 50px;
+    padding: 10px 20px;
+    color: white;
+    font-size: 20px;
+    line-height: 1.5;
+    z-index: 3; /* 最高层 */
+    text-align: center; /* 对话框文本居中 */
+    font-family: 'Noto Sans SC', Courier, monospace; /* 修改字体为等宽字体 */
+    border: 1px solid #714f0a; /* 设置边框：2px宽，实线，灰色 */
+    font-weight: bold; /* 加粗字体 */
+    color: #6aafd9; /* 设置字体颜色，例如深灰色 */
+    letter-spacing: 3px; /* 设置字母间距，1px为例 */
+}

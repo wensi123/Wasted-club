@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Center</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <div class="header-background"></div>
+    <ul class="nav-menu">
+        <li><a class="active" href="#home">首页</a></li>
+        <li><a href="#news">排行榜</a></li>
+        <li><a href="#contact">成就栏</a></li>
+        <li><a href="#about">关于我们</a></li>
+        <li id="user"><a href="#user">用户中心</a></li>
+    </ul>
+    
+    <div id="app">
+        <div class="PersonTop">
+            <div class="PersonTop_img">
+                <img :src="avatar" ref="avatarImage" />
+                <input type="file" id="avatar-upload" @change="onFileChange" accept="image/*" style="display: none;">
+                <el-button v-if="isCurrentUser" class="avatar-upload-btn" size="small" @click="triggerFileUpload">更换头像</el-button>
+            </div>
+            <div class="PersonTop_text">
+                <div class="user_text">
+                    <div class="user_name">
+                        <span>{{ username }}</span>
+                    </div>
+                    <div class="user-v" v-if="v === 3">
+                        <span class="user-v-font">优质玩家</span>
+                    </div>
+                    <div class="user_qianming">
+                        <span>{{ bio }}</span>
+                    </div>
+                    <div class="user_anniu">
+                        <el-button
+                            v-if="!isCurrentUser"
+                            @click="toggleFollow"
+                            type="primary"
+                            size="medium"
+                            icon="el-icon-check"
+                            v-text="isFollowing ? '已关注' : '关注'"
+                        ></el-button>
+                    </div>
+                </div>
+                <div class="user_num">
+                    <div style="cursor: pointer" @click="myfan">
+                        <div class="num_number">{{ 100 }}</div>
+                        <span class="num_text">粉丝</span>
+                    </div>
+                    <div style="cursor: pointer" @click="myfollow">
+                        <div class="num_number">{{ 50 }}</div>
+                        <span class="num_text">关注</span>
+                    </div>
+                    <div>
+                        <div class="num_number">{{ 3000 }}</div>
+                        <span class="num_text">获赞</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="person_body">
+            <div class="person_body_left">
+                <el-card class="box-card" :body-style="{ padding: '0px' }">
+                    <div slot="header" class="clearfix">
+                        <span class="person_body_list" style="border-bottom: none">个人中心</span>
+                    </div>
+                    <el-menu
+                        active-text-color="#00c3ff"
+                        class="el-menu-vertical-demo"
+                    >
+                        <el-menu-item index="info" @click="changeView('info')">
+                            <i class="el-icon-user"></i>
+                            <span slot="title">个人简介</span>
+                        </el-menu-item>
+                        <el-menu-item index="onlineTime" @click="changeView('onlineTime')">
+                            <i class="el-icon-edit-outline"></i>
+                            <span slot="title">在线时长</span>
+                        </el-menu-item>
+                        <el-menu-item index="help" @click="changeView('help')">
+                            <i class="el-icon-tableware"></i>
+                            <span slot="title">使用帮助</span>
+                        </el-menu-item>
+                        <el-menu-item index="feedback" @click="changeView('feedback')">
+                            <i class="el-icon-circle-plus-outline"></i>
+                            <span slot="title">意见反馈</span>
+                        </el-menu-item>
+                    </el-menu>
+                </el-card>
+            </div>
+            <div class="person_body_right">
+                <component :is="currentView"></component>
+            </div>
+        </div>
+
+        <!-- 裁剪对话框 -->
+        <el-dialog title="裁剪头像" :visible.sync="cropperVisible" width="400px">
+            <div class="cropper-container">
+                <img ref="cropperImage" src="" style="max-width: 100%;">
+            </div>
+            <span slot="footer" class="dialog-footer">
+                <el-button @click="cropperVisible = false">取 消</el-button>
+                <el-button type="primary" @click="cropImage">确 定</el-button>
+            </span>
+        </el-dialog>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+    <script src="https://unpkg.com/http-vue-loader"></script>
+
+
+    <!-- 组件 -->
+    <script src="js/components/info.js"></script>
+    <script src="js/components/onlineTime.js"></script>
+    <script src="js/components/help.js"></script>
+    <script src="js/components/feedback.js"></script>
+    
+    <!-- 工具和API -->
+    <script src="js/utils/api.js"></script>
+    
+    <!-- 主脚本 -->
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Minesweeper
+        </title>
+        <script src="../recordGame.js" defer></script> <!-- 引用通用的 JS 文件 -->
+        <link rel="stylesheet" href="./minesweeper.css">
+        <link rel="icon" href="../img/mine_img/favicon.ico">
+    </head>
+
+    <body data-game-name="扫雷">
+        <div id="mine">
+            <div class="level">
+                <button class="active">简单</button>
+                <button>中级</button>
+                <button>困难</button>
+                <button>重新开始</button>
+            </div>
+            <div class="gamebox">
+            </div>
+            <div class="gameinfo">
+                剩余可标旗帜数：<span class="mineNum"></span>
+                <br>
+                <span class="tips">鼠标左键单击扫雷，右键单击插旗，再次单击右键取消插旗</span>
+            </div>
+        </div>
+        <!--弹窗-->
+        </div>
+        <div id="game-message" class="message">
+            <div class="message-content">
+                <span class="close">&times;</span>
+                <p id="endtext"></p>
+            </div>
+        </div>
+        <script src="./minesweeper.js"></script>
+    </body>
+</html>

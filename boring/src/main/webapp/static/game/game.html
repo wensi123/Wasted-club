@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游戏界面</title>
+    <link rel="stylesheet" href="./game.css">
+</head>
+<body>
+    <!-- 首页按钮 -->
+    <a href="../discovery/discovery.html">
+        <button id="open-popup-btn">显示弹窗</button>
+    </a>
+
+    <!-- 游戏界面 -->
+    <div class="background" id="popup-background" style="display: none;">
+        <div class="popup">
+            <div class="game-display">
+                <button class="arrow-btn left-arrow" onclick="prevImage()">&#9664;</button>
+                <img id="game-image" src="" alt="Game Display"> <!-- src 初始化为空，后面动态赋值 -->
+                <button class="arrow-btn right-arrow" onclick="nextImage()">&#9654;</button>
+            </div>
+            <div class="message" id="game-name"></div> <!-- 游戏名称动态变化 -->
+            <div class="buttons">
+                <button class="cancel-btn" onclick="closePopup()">✖</button>
+                <button class="confirm-btn" onclick="confirmAction()">✔</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./game.js"></script>
+</body>
+</html>

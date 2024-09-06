@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>无聊</title>
+    <link rel="stylesheet" href="./home.css"><!-- 记得改路径 -->
+</head>
+<body>
+    <ul>
+        <li><a class="active" href="./home.html">首页</a></li>
+        <li><a href="../rank/rank.html">排行榜</a></li>
+        <li><a href="../medal/medal.html">成就栏</a></li>
+        <li><a href="../about/about.html">关于我们</a></li>
+        <li id="user"><a href="../usercenter/index.html">用户中心</a></li>
+    </ul>
+    <div class="map-container">
+        <!-- 地点 -->
+        <div class="point" id="point1" style="top: 27%; left: 27%;"></div>
+        <div class="point" id="point2" style="top: 61%; left: 35%;"></div>
+        <div class="point" id="point3" style="top: 48%; left: 55%;"></div>
+        <div class="point" id="point4" style="top: 20%; left: 80%;"></div>
+        <div class="point" id="point5" style="top: 67%; left: 80%;"></div>
+
+        <!-- 帆船 -->
+        <div class="ship" id="ship" style="top: 20%; left: 80%;"></div>
+
+        <!-- 图鉴 -->
+        <button class="illustration" onclick="window.open('../illustration/illustration.html', '_blank')">图鉴</button>
+        
+        <!--退出登录-->
+        <button class="logout" onclick="logout()">退出登录</button>-->
+
+    </div>
+    <script>
+        const ship = document.getElementById('ship');
+        const points = document.querySelectorAll('.point');
+
+        points.forEach(point => {
+            point.addEventListener('click', function () {
+                // 获取点击的点的位置
+                const targetTop = this.style.top;
+                const targetLeft = this.style.left;
+                console.log("帆船正常移动！");
+                // 将帆船移动到目标位置
+                ship.style.top = targetTop;
+                ship.style.left = targetLeft;
+
+                // 在帆船到达目标位置后显示弹窗
+                setTimeout(function () {
+                    window.location.href = '../discovery/discovery.html'; //跳转到 discovery页面
+                }, 2000); // 与CSS中的transition时间一致
+            });
+        });
+
+        //退出登录
+        function logout() {
+            fetch('/MyWebApp/logout', {
+                method: 'POST',
+                credentials: 'include' // 包含 Cookies，以确保会话被清除
+            })
+                .then(response => {
+                    if (response.ok) {
+                        window.location.href = '../login/login.html'; // 登出成功后跳转到登录页面
+                    } else {
+                        alert('登出失败，请重试！');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error during logout:', error);
+                    alert('登出时发生错误，请重试！');
+                });
+        }
+    </script>
+    
+    
+</body>
+</html>
